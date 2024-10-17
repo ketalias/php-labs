@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Проекти</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .filters {
+            display: flex;
+            width: 100%;
+            justify-content: space-around;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <h1>Список проектів</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Age</th>
+                <th>Country</th>
+                <th>Score 1</th>
+                <th>Score 2</th>
+                <th>Score 3</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($participants as $participant) : ?>
+                <tr>
+                    <td>
+                        <?= $participant['id']; ?>
+                    </td>
+                    <td>
+                        <?= $participant['name']; ?>
+                    </td>
+                    <td>
+                        <?= $participant['gender']; ?>
+                    </td>
+                    <td>
+                        <?= $participant['age']; ?>
+                    </td>
+                    <td>
+                        <?= $participant['country']; ?>
+                    </td>
+                    <td>
+                        <?= $participant['scores'][0]; ?>
+                    </td>
+                    <td>
+                        <?= $participant['scores'][1]; ?>
+                    </td>
+                    <td>
+                        <?= $participant['scores'][2]; ?>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+    <div class="filters">
+        <div>
+            <h1>Фільтрація Учасників</h1>
+            <form action="" method="get">
+                <label for="country">Країна:</label><br>
+                <input type="text" id="country" name="country" required><br><br>
+
+                <label for="minAge">Мінімальний Вік:</label><br>
+                <input type="number" id="minAge" name="minAge" min="0" required><br><br>
+
+                <button type="submit">Фільтрувати</button>
+            </form>
+        </div>
+        <div>
+            <h2>Додати нового учасника</h2>
+            <form method="post" action="">
+                <label for="code">Код учасника:</label><br>
+                <input type="text" id="code" name="code" required><br><br>
+
+                <label for="name">ПІБ:</label><br>
+                <input type="text" id="name" name="name" required><br><br>
+
+                <label for="gender">Стать:</label><br>
+                <select id="gender" name="gender" required>
+                    <option value="Чоловік">Чоловік</option>
+                    <option value="Жінка">Жінка</option>
+                </select><br><br>
+
+                <label for="age">Вік:</label><br>
+                <input type="number" id="age" name="age" min="0" required><br><br>
+
+                <label for="country">Країна:</label><br>
+                <input type="text" id="country" name="country" required><br><br>
+
+                <label for="scores">Оцінки (через кому):</label><br>
+                <input type="text" id="scores" name="scores" required placeholder="1,2,3"><br><br>
+
+                <input type="submit" value="Додати учасника">
+            </form>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
