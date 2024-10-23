@@ -8,30 +8,119 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            margin: 20px 0;
+            font-family: Arial, sans-serif;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
         th,
         td {
-            padding: 8px;
+            padding: 12px;
             text-align: left;
             border: 1px solid #ddd;
+            transition: background-color 0.3s;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #aaaccc;
+            font-weight: bold;
+            color: #333;
+        }
+
+        tr:hover {
+            background-color: #007bff;
         }
 
         .filters {
             display: flex;
-            width: 100%;
-            justify-content: space-around;
+            justify-content: space-evenly;
+            width: 100vw;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 10px 0;
         }
-        
+
+        .filter-input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            width: 200px;
+            max-width: 100%;
+        }
+
+        .filter-button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: #0056b3;
+        }
+
+        form {
+            background-color: #aaaccc;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #aaaccc;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            cursor: pointer;
+        }
+
+        label:hover {
+            color: #007bff;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        button:hover {
+            background-color: #0056b3;
+            transform: translateY(-1px);
+        }
+
+        button:active {
+            background-color: #004494;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .filters {
+                flex-direction: column;
+            }
+        }
     </style>
+
 </head>
 
 <body>
-    <h1>Список проектів</h1>
+    <h1>Список учасників</h1>
     <table>
         <thead>
             <tr>
@@ -43,35 +132,20 @@
                 <th>Score 1</th>
                 <th>Score 2</th>
                 <th>Score 3</th>
+           
             </tr>
         </thead>
         <tbody>
             <?php foreach ($participants as $participant) : ?>
                 <tr>
-                    <td>
-                        <?= $participant['id']; ?>
-                    </td>
-                    <td>
-                        <?= $participant['name']; ?>
-                    </td>
-                    <td>
-                        <?= $participant['gender']; ?>
-                    </td>
-                    <td>
-                        <?= $participant['age']; ?>
-                    </td>
-                    <td>
-                        <?= $participant['country']; ?>
-                    </td>
-                    <td>
-                        <?= $participant['scores'][0]; ?>
-                    </td>
-                    <td>
-                        <?= $participant['scores'][1]; ?>
-                    </td>
-                    <td>
-                        <?= $participant['scores'][2]; ?>
-                    </td>
+                    <td><?= $participant['id']; ?></td>
+                    <td><?= $participant['name']; ?></td>
+                    <td><?= $participant['gender']; ?></td>
+                    <td><?= $participant['age']; ?></td>
+                    <td><?= $participant['country']; ?></td>
+                    <td><?= $participant['score1']; ?></td>
+                    <td><?= $participant['score2']; ?></td>
+                    <td><?= $participant['score3']; ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -90,10 +164,10 @@
             </form>
         </div>
         <div>
-            <h2>Додати нового учасника</h2>
+            <h1>Додати нового учасника</h1>
             <form method="post" action="">
-                <label for="code">Код учасника:</label><br>
-                <input type="text" id="code" name="code" required><br><br>
+                <label for="id">Код учасника:</label><br>
+                <input type="text" id="id" name="id" required><br><br>
 
                 <label for="name">ПІБ:</label><br>
                 <input type="text" id="name" name="name" required><br><br>
@@ -110,13 +184,23 @@
                 <label for="country">Країна:</label><br>
                 <input type="text" id="country" name="country" required><br><br>
 
-                <label for="scores">Оцінки (через кому):</label><br>
-                <input type="text" id="scores" name="scores" required placeholder="1,2,3"><br><br>
+                <label for="score1">Оцінка 1:</label><br>
+                <input type="number" id="score1" name="score1" min="0" required><br><br>
 
-                <input type="submit" value="Додати учасника">
+                <label for="score2">Оцінка 2:</label><br>
+                <input type="number" id="score2" name="score2" min="0" required><br><br>
+
+                <label for="score3">Оцінка 3:</label><br>
+                <input type="number" id="score3" name="score3" min="0" required><br><br>
+
+                <button type="submit">Додати</button>
             </form>
         </div>
-    </div>
+
+</body>
+
+</div>
+</div>
 
 
 </body>

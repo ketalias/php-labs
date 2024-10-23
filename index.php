@@ -1,7 +1,6 @@
 <?php
 
 include 'participants.php';
-include 'filterFunc.php';
-include 'filterAction.php';
+include 'Action.php';
 include 'template.phtml';
 

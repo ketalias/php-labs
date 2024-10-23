@@ -7,7 +7,9 @@ $participants = [
         'gender' => 'чоловік',
         'age' => 25,
         'country' => 'Україна',
-        'scores' => [9, 8, 7]
+        'score1' => 1,
+        'score2' => 1,
+        'score3' => 6,
     ],
     [
         'id' => 2,
@@ -15,7 +17,10 @@ $participants = [
         'gender' => 'жінка',
         'age' => 22,
         'country' => 'Україна',
-        'scores' => [8, 8, 8]
+        'score1' => 1,
+        'score2' => 1,
+        'score3' => 6,
+
     ],
     [
         'id' => 3,
@@ -23,7 +28,9 @@ $participants = [
         'gender' => 'чоловік',
         'age' => 30,
         'country' => 'США',
-        'scores' => [7, 9, 8]
+        'score1' => 1,
+        'score2' => 1,
+        'score3' => 6,
     ],
     [
         'id' => 4,
@@ -31,7 +38,9 @@ $participants = [
         'gender' => 'жінка',
         'age' => 27,
         'country' => 'Іспанія',
-        'scores' => [8, 7, 9]
+        'score1' => 1,
+        'score2' => 1,
+        'score3' => 6,
     ],
     [
         'id' => 5,
@@ -39,8 +48,8 @@ $participants = [
         'gender' => 'чоловік',
         'age' => 28,
         'country' => 'Канада',
-        'scores' => [9, 9, 8]
+        'score1' => 1,
+        'score2' => 1,
+        'score3' => 6,
     ]
 ];
-
-
